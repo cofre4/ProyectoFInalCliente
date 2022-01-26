@@ -14,7 +14,7 @@ export class PopupComponent implements OnInit {
   // https://stackoverflow.com/questions/44053227/how-to-emit-an-event-from-parent-to-child
 
   @Input() show: Observable<void>;
-  @Input() title: string = "wildCART";
+  @Input() title: string = "Profiman S.L.";
   @Input() body: string = "";
   @Input() size: string = "";
   @Input() icon: string = "";

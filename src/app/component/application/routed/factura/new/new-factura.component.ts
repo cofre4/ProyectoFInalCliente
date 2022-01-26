@@ -54,7 +54,6 @@ export class NewFacturaComponent implements OnInit {
   ngOnInit(): void {
     this.oForm = this.oFormBuilder.group({
       fecha: ['', Validators.required],
-      iva: ['', Validators.required],
       pagado: [''],
       usuario: ['']
     });
@@ -77,7 +76,6 @@ export class NewFacturaComponent implements OnInit {
     if (this.oForm) {
       this.oFactura2Send = {
         fecha: this.oDateTimeService.getStrFecha2Send(this.oForm.value.fecha),
-        iva: this.oForm.value.iva,
         pagado: this.oForm.value.pagado,
         usuario:{ id:this.oForm.value.usuario}
       }

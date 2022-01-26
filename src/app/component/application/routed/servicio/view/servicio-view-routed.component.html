@@ -1,0 +1,57 @@
+<app-menu></app-menu>
+<div class="container my-3">
+
+    <app-header [title]="'Vista de un ' + strTitleSingular" [icon]="oIconService.getIcon(this.strOperation)"
+    [iconEntity]="oIconService.getIcon(this.strEntity)">
+  </app-header>
+
+    <div class="row justify-content-center">
+        <table class="table table-striped">
+            <tbody>
+                <tr>
+                    <th><i [ngClass]="oIconService.getIcon('id')"></i>ID</th>
+                    <td>{{oServicio?.id}}</td>
+                </tr>
+                
+                <tr>
+                    <th>Nombre</th>
+                    <td>{{oServicio?.nombre}}</td>
+                </tr>
+
+                <tr>
+                    <th>Descripcion</th>
+                    <td>{{oServicio?.descripcion}}</td>
+                </tr>
+                
+                <tr>
+                    <th>Precio</th>
+                    <td>{{oServicio?.precio}}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <div class="row justify-content-center">
+            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+              <a class="btn btn-warning mx-2" [routerLink]="['/' + strEntity + '/edit/' + oServicio?.id]"><i
+                  [ngClass]="oIconService.getIcon('edit')"></i> Modificarlo</a>
+              <a class="btn btn-danger mx-2" [routerLink]="['/' + strEntity + '/remove/' + oServicio?.id]"><i
+                  [ngClass]="oIconService.getIcon('remove')"></i> Borrarlo </a>
+            </div>
+      
+            <div class="d-grid gap-2 d-md-block mt-3 d-md-flex justify-content-md-center mt-5">
+              <a class="btn btn-primary mx-2" [routerLink]="['/home']"><i [ngClass]="oIconService.getIcon('home')"></i> Página
+                principal</a>
+              <a class="btn btn-primary mx-2" [routerLink]="['/' + strEntity + '/plist']"><i
+                  [ngClass]="oIconService.getIcon('plist')"></i> Listado de {{strTitlePlural}}</a>
+              <a class="btn btn-primary mx-2" (click)="goBack()"><i [ngClass]="oIconService.getIcon('volver')"></i> Volver
+              </a>
+            </div>
+      
+          </div>
+
+
+    </div>
+</div>
+
+<app-footer></app-footer>

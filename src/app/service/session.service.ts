@@ -31,10 +31,10 @@ export class SessionService {
     return throwError(errorMessage);
   }
 
-  login(loginData: String): Observable<String> {
-    if (environment) console.log("SessionService: login");
-    return this.http.post<String>(this.sURL, loginData, httpOptions).pipe(
-      tap((u: String) => console.log("session.service login HTTP request executed", u)),
+  user(userData: String): Observable<String> {
+    if (environment) console.log("SessionService: user");
+    return this.http.post<String>(this.sURL, userData, httpOptions).pipe(
+      tap((u: String) => console.log("session.service user HTTP request executed", u)),
       retry(1),
       catchError(this.handleError));
   }

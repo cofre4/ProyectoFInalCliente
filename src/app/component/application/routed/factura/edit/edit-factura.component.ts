@@ -80,9 +80,9 @@ export class EditFacturaComponent implements OnInit {
       this.oForm = this.oFormBuilder.group({
         id: [this.oFactura2Show.id],
         fecha: [this.oFactura2Show.fecha, Validators.required],
-        iva: [this.oFactura2Show.iva, Validators.required],
-        pagado: [this.oFactura2Show.pagado],
-        id_usuario: [this.oFactura2Show.usuario.id, Validators.required]
+        id_usuario: [this.oFactura2Show.usuario.id, Validators.required],
+        pagado: [this.oFactura2Show.pagado]
+
       });
       $('#fecha').val(this.oFactura2Show.fecha);
 
@@ -110,11 +110,11 @@ export class EditFacturaComponent implements OnInit {
       this.oFactura2Send = {
         id: this.oForm.value.id,
         fecha: this.oForm.value.fecha,
-        iva: this.oForm.value.iva,
-        pagado: this.oForm.value.pagado,
         usuario: {
           id: this.oForm.value.id_usuario
-        }
+        },
+        pagado: this.oForm.value.pagado
+
       }
       this.update();
     }

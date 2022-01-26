@@ -1,5 +1,5 @@
 import { Injectable } from "@angular/core";
-import { IFecha } from "../model/model-interfaces";
+import { IHorario } from "../model/model-interfaces";
 
 @Injectable({
     providedIn: 'root'
@@ -18,7 +18,7 @@ export class DateTimeService {
         }
     }
 
-    getStrFecha2Show = (oFecha: IFecha): string => {
+    getStrFecha2Show = (oFecha: IHorario): string => {
         return this.getDoubleDigitStr(oFecha.date.day) + "/" + this.getDoubleDigitStr(oFecha.date.month) + "/" + oFecha.date.year + " " + this.getDoubleDigitStr(oFecha.time.hour) + ":" + this.getDoubleDigitStr(oFecha.time.minute);
     }
 

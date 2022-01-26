@@ -13,13 +13,10 @@
                     <th> <i [ngClass]="oIconService.getIcon('id')"></i> ID</th>
                     <td>{{oFactura?.id}}</td>
                 </tr>
-                <tr>
-                    <th> <i [ngClass]="oIconService.getIcon('porcentaje')"></i> Iva</th>
-                    <td>{{oFactura?.iva}}</td>
-                </tr>
+               
                 <tr>
                     <th><i [ngClass]="oIconService.getIcon('usuario')"></i> Usuario</th>
-                    <td>{{oFactura?.usuario.nombre}} {{oFactura?.usuario.apellido1}} {{oFactura?.usuario.apellido2}}</td>
+                    <td>{{oFactura?.usuario.nombre}} {{oFactura?.usuario.apellidos}}</td>
                 </tr>
                 <tr>
                     <th> <i [ngClass]="oIconService.getIcon('fecha')"></i> Fecha</th>

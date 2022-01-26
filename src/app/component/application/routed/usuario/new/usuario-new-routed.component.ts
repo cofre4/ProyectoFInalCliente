@@ -55,9 +55,8 @@ export class UsuarioNewRoutedComponent implements OnInit {
     this.oForm = this.oFormBuilder.group({
       nombre: ['', [Validators.required, Validators.minLength(5)]],
       dni: ['', [Validators.required, Validators.minLength(5)]],
-      apellido1: ['', [Validators.required, Validators.minLength(5)]],
-      apellido2: ['', [Validators.required, Validators.minLength(5)]],
-      login: ['', [Validators.required, Validators.minLength(5)]],
+      apellidos: ['', [Validators.required, Validators.minLength(5)]],
+      user: ['', [Validators.required, Validators.minLength(5)]],
       email: ['', [Validators.required, Validators.minLength(5)]],
       tusuario: ['', [Validators.required, Validators.maxLength(1)]],
 
@@ -70,13 +69,9 @@ export class UsuarioNewRoutedComponent implements OnInit {
         id: null,
         nombre: this.oForm.value.nombre,
         dni: this.oForm.value.dni,
-        apellido1: this.oForm.value.apellido1,
-        apellido2: this.oForm.value.apellido2,
-        login: this.oForm.value.login,
+        apellidos: this.oForm.value.apellido1,
+        user: this.oForm.value.user,
         email: this.oForm.value.email,
-        descuento: 0,
-        validado: true,
-        activo: true,
         tipousuario:{
           id:this.oForm.value.tusuario
         }

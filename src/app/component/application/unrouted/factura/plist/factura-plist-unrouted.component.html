@@ -81,21 +81,19 @@
             <tbody>
                 <tr *ngFor="let fila of aFacturas">
                     <td class="text-end">{{fila?.id}}</td>
-                    <td class="text-center">{{fila?.iva}}%</td>
                     <td>
                         <button class="btn btn-light btn-sm"
                             [routerLink]="['/factura/plist/usuario/' + fila?.usuario?.id]">
                             <i [ngClass]="oIconService.getIcon('usuario')"></i>
                             ({{fila?.usuario?.id }})
-                            {{fila?.usuario?.nombre + ' ' + fila?.usuario?.apellido1 + ' ' +
-                            fila?.usuario?.apellido2 }}
+                            {{fila?.usuario?.nombre + ' ' + fila?.usuario?.apellidos}}
 
                         </button>
                     </td>
                     <td class="text-center">{{fila?.fecha}}</td>
                     <td style="text-align: center;"><button class="btn btn-outline-secondary btn-sm"
-                            [routerLink]="['/compra/plist/factura/',fila.id]">{{fila?.compras}} <i
-                                [ngClass]="oIconService.getIcon('compra')"></i></button></td>
+                            [routerLink]="['/contrata/plist/factura/',fila.id]">{{fila?.contratas}} <i
+                                [ngClass]="oIconService.getIcon('contrata')"></i></button></td>
                     <td class="text-center" [innerHTML]="fila.pagado | showBoolean"></td>
                     <td class="text-center">
                         <div class="btn-group btn-group-sm" role="group" *ngIf="!mode">

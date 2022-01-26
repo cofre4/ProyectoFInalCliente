@@ -5,7 +5,7 @@ import { BrowserModule } from '@angular/platform-browser';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
-import { LoginComponent } from './component/shared/routed/login/login.component';
+import { UserComponent } from './component/shared/routed/user/user.component';
 import { HomeComponent } from './component/shared/routed/home/home.component';
 import { LogoutComponent } from './component/shared/routed/logout/logout.component';
 import { MenuComponent } from './component/shared/unrouted/menu/menu.component';
@@ -23,59 +23,43 @@ import { HeaderComponent } from './component/shared/unrouted/header/header.compo
 import { TipousuarioPlistRoutedComponent } from './component/application/routed/tipousuario/plist/tipousuario-plist-routed.component';
 import { TipousuarioEditRoutedComponent } from './component/application/routed/tipousuario/edit/tipousuario-edit-routed.component';
 import { TipousuarioViewRoutedComponent } from './component/application/routed/tipousuario/view/tipousuario-view-routed.component';
-import { PlistTipoproductoComponent } from './component/application/routed/tipoproducto/plist/tipoproducto-plist-routed.component';
-import { NewTipoproductoComponent } from './component/application/routed/tipoproducto/new/new-tipoproducto.component';
-import { EditTipoproductoComponent } from './component/application/routed/tipoproducto/edit/edit-tipoproducto.component';
-import { RemoveTipoproductoComponent } from './component/application/routed/tipoproducto/remove/remove-tipoproducto.component';
-import { ViewTipoproductoComponent } from './component/application/routed/tipoproducto/view/view-tipoproducto.component';
-import { PlistProductoComponent } from './component/application/routed/producto/plist/plist-producto.component';
-import { NewProductoComponent } from './component/application/routed/producto/new/new-producto.component';
-import { EditProductoComponent } from './component/application/routed/producto/edit/edit-producto.component';
-import { ProductoRemoveRoutedComponent } from './component/application/routed/producto/remove/producto-remove-routed.component';
-import { ProductoViewRoutedComponent } from './component/application/routed/producto/view/producto-view-routed.component';
+import { PlistServicioComponent } from './component/application/routed/servicio/plist/plist-servicio.component';
+import { NewServicioComponent } from './component/application/routed/servicio/new/new-servicio.component';
+import { EditServicioComponent } from './component/application/routed/servicio/edit/edit-servicio.component';
+import { ServicioRemoveRoutedComponent } from './component/application/routed/servicio/remove/servicio-remove-routed.component';
+import { ServicioViewRoutedComponent } from './component/application/routed/servicio/view/servicio-view-routed.component';
 import { UsuarioPlistRoutedComponent } from './component/application/routed/usuario/plist/usuario-plist-routed.component';
 import { UsuarioNewRoutedComponent } from './component/application/routed/usuario/new/usuario-new-routed.component';
 import { UsuarioEditRoutedComponent } from './component/application/routed/usuario/edit/usuario-edit-routed.component';
 import { UsuarioRemoveRoutedComponent } from './component/application/routed/usuario/remove/usuario-remove-routed.component';
 import { UsuarioViewRoutedComponent } from './component/application/routed/usuario/view/usuario-view-routed.component';
-import { PlistCarritoComponent } from './component/application/routed/carrito/plist/plist-carrito.component';
-import { NewCarritoComponent } from './component/application/routed/carrito/new/new-carrito.component';
-import { ViewCarritoComponent } from './component/application/routed/carrito/view/view-carrito.component';
-import { RemoveCarritoComponent } from './component/application/routed/carrito/remove/remove-carrito.component';
-import { EditCarritoComponent } from './component/application/routed/carrito/edit/edit-carrito.component';
-import { PlistCompraComponent } from './component/application/routed/compra/plist/plist-compra.component';
-import { NewCompraComponent } from './component/application/routed/compra/new/new-compra.component';
-import { ViewCompraComponent } from './component/application/routed/compra/view/view-compra.component';
-import { RemoveCompraComponent } from './component/application/routed/compra/remove/remove-compra.component';
-import { EditCompraComponent } from './component/application/routed/compra/edit/edit-compra.component';
+import { PlistContrataComponent } from './component/application/routed/contrata/plist/plist-contrata.component';
+import { NewContrataComponent } from './component/application/routed/contrata/new/new-contrata.component';
+import { ViewContrataComponent } from './component/application/routed/contrata/view/view-contrata.component';
+import { RemoveContrataComponent } from './component/application/routed/contrata/remove/remove-contrata.component';
+import { EditContrataComponent } from './component/application/routed/contrata/edit/edit-contrata.component';
 import { FacturaPlistRoutedComponent } from './component/application/routed/factura/plist/factura-plist-routed.component';
 import { NewFacturaComponent } from './component/application/routed/factura/new/new-factura.component';
 import { ViewFacturaComponent } from './component/application/routed/factura/view/view-factura.component';
 import { RemoveFacturaComponent } from './component/application/routed/factura/remove/remove-factura.component';
 import { EditFacturaComponent } from './component/application/routed/factura/edit/edit-factura.component';
-import { CompraService } from './service/compra.service';
-import { ProductoService } from './service/producto.service';
-import { CarritoService } from './service/carrito.service';
+import { ContrataService } from './service/contrata.service';
+import { ServicioService } from './service/servicio.service';
 import { UsuarioService } from './service/usuario.service';
 import { TipousuarioService } from './service/tipousuario.service';
-import { TipoproductoService } from './service/tipoproducto.service';
 import { FacturaService } from './service/factura.service';
 import { IconService } from './service/icon.service';
-import { GenerateComponent } from './component/shared/routed/generate/generate.component';
-import { GenerateService } from './service/generate.service';
 import { CountService } from './service/count.service';
 import { ReportsComponent } from './component/shared/routed/reports/reports.component';
 import { UsuarioPlistUnroutedComponent } from './component/application/unrouted/usuario/plist/usuario-plist-unrouted.component';
 import { PopupComponent } from './component/shared/unrouted/popup/popup.component';
 import { UsuarioViewUnroutedComponent } from './component/application/unrouted/usuario/view/usuario-view-unrouted.component';
-import { FileService } from './service/file.service';
 import { PrePrintComponent } from './component/shared/unrouted/preprint/preprint.component';
-import { TipoProductoPlistUnroutedComponent } from './component/application/unrouted/tipoproducto/plist/tipoproducto-plist-unrouted.component';
-import { ProductoPlistUnroutedComponent } from './component/application/unrouted/producto/plist/producto-plist-unrouted.component';
+import { ServicioPlistUnroutedComponent } from './component/application/unrouted/servicio/plist/servicio-plist-unrouted.component';
 
 import { FacturaPlistUnroutedComponent } from './component/application/unrouted/factura/plist/factura-plist-unrouted.component';
 import { TipousuarioPlistUnroutedComponent } from './component/application/unrouted/tipousuario/plist/tipousuario-plist-unrouted.component';
-import { ProductoCPlistUnroutedComponent } from './component/application/unrouted/producto/cplist/producto-cplist-unrouted.component';
+import { ServicioCPlistUnroutedComponent } from './component/application/unrouted/servicio/cplist/servicio-cplist-unrouted.component';
 
 @NgModule({
   declarations: [
@@ -88,10 +72,9 @@ import { ProductoCPlistUnroutedComponent } from './component/application/unroute
     MenuComponent,
     PrePrintComponent,
     // shared routed
-    LoginComponent,
+    UserComponent,
     HomeComponent,
     LogoutComponent,
-    GenerateComponent,
     ReportsComponent,
     // pipes
     TrimPipe,
@@ -107,45 +90,32 @@ import { ProductoCPlistUnroutedComponent } from './component/application/unroute
     UsuarioNewRoutedComponent,
     UsuarioEditRoutedComponent,
     UsuarioRemoveRoutedComponent,
-    // Tipoproducto routed components
-    PlistTipoproductoComponent,
-    NewTipoproductoComponent,
-    ViewTipoproductoComponent,
-    EditTipoproductoComponent,
-    RemoveTipoproductoComponent,
-    // Producto routed components
-    PlistProductoComponent,
-    ProductoViewRoutedComponent,
-    NewProductoComponent,
-    EditProductoComponent,
-    ProductoRemoveRoutedComponent,
-    // Compra routed components
-    PlistCompraComponent,
-    ViewCompraComponent,
-    NewCompraComponent,
-    EditCompraComponent,
-    RemoveCompraComponent,
+   
+    // Servicio routed components
+    PlistServicioComponent,
+    ServicioViewRoutedComponent,
+    NewServicioComponent,
+    EditServicioComponent,
+    ServicioRemoveRoutedComponent,
+    // Contrata routed components
+    PlistContrataComponent,
+    ViewContrataComponent,
+    NewContrataComponent,
+    EditContrataComponent,
+    RemoveContrataComponent,
     // Factura routed components
     FacturaPlistRoutedComponent,
     ViewFacturaComponent,
     NewFacturaComponent,
     EditFacturaComponent,
     RemoveFacturaComponent,
-    // Carrito routed components
-    PlistCarritoComponent,
-    NewCarritoComponent,
-    ViewCarritoComponent,
-    RemoveCarritoComponent,
-    EditCarritoComponent,
+
     // Usuario unrouted components
     UsuarioPlistUnroutedComponent,
     UsuarioViewUnroutedComponent,
 
-    // TipoProducto unrouted components
-    TipoProductoPlistUnroutedComponent,
-
-    // Producto unrouted components
-    ProductoPlistUnroutedComponent,
+    // Servicio unrouted components
+    ServicioPlistUnroutedComponent,
 
     // Factura unrouted components
     FacturaPlistUnroutedComponent,
@@ -153,7 +123,7 @@ import { ProductoCPlistUnroutedComponent } from './component/application/unroute
     // TipoUsuario unrouted components
     TipousuarioPlistUnroutedComponent,
 
-    ProductoCPlistUnroutedComponent,
+    ServicioCPlistUnroutedComponent,
   ],
   imports: [
     HttpClientModule,
@@ -168,17 +138,13 @@ import { ProductoCPlistUnroutedComponent } from './component/application/unroute
     PostService,
     PaginationService,
     DateTimeService,
-    CompraService,
+    ContrataService,
     FacturaService,
-    ProductoService,
-    TipoproductoService,
+    ServicioService,
     UsuarioService,
     TipousuarioService,
-    CarritoService,
     IconService,
-    GenerateService,
     CountService,
-    FileService,
   ],
   bootstrap: [AppComponent],
 })

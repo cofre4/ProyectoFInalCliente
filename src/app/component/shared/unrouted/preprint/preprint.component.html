@@ -7,24 +7,14 @@
     <div class="row justify-content-center">
         <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()">
 
-            <div class="row mb-3" *ngIf="showcantidad">
-                <label for="cantidad" class="col-sm-3 col-form-label"> <i
-                        [ngClass]="oIconService.getIcon('cantidad')"></i>
-                    Cantidad</label>
-                <div class="col-sm-9">
-                    <input class="form-control" name="cantidad" formControlName="cantidad" type="text"
-                        placeholder="{{cantidad}}">
-                </div>
-            </div>
-
             <div class="row mb-3" [hidden]="!showfechas">
-                <label for="fechaincio" class="col-sm-3 col-form-label"> <i
-                        [ngClass]="oIconService.getIcon('fecha')"></i>
+                <label for="fechaincio" class="col-sm-3 col-form-label">
+                    <i [ngClass]="oIconService.getIcon('fecha')"></i>
                     Fecha Inicio</label>
                 <div class="col-sm-9">
                     <input type="text" name="fechainicio" id="fechainicio" formControlName="fechainicio"
                         class="text ui-widget-content ui-corner-all" />
-                        <!-- 
+                    <!-- 
                     <div *ngIf="f.fechainicio.dirty && f.fechainicio.errors?.required" class="text-danger">
                         Se debe introducir una fecha correcta
                     </div>
@@ -38,7 +28,7 @@
                 <div class="col-sm-9">
                     <input type="text" name="fechafin" id="fechafin" formControlName="fechafin"
                         class="text ui-widget-content ui-corner-all" />
-                         <!-- 
+                    <!-- 
                     <div *ngIf="f.fechafin.dirty && f.fechafin.errors?.required" class="text-danger">
                         Se debe introducir una fecha correcta
                     </div>

@@ -46,7 +46,7 @@ export class IconService {
       case strIcon.startsWith("report"): return "fas fa-copy";
       // 
       case strIcon == "home": return "fas fa-home";
-      case strIcon == "login": return "fas fa-sign-in-alt";
+      case strIcon == "user": return "fas fa-sign-in-alt";
       case strIcon == "logout": return "fas fa-sign-out-alt";
       case strIcon == "usuarios": return "fas fa-user-friends";
       case strIcon == "id": return "fas fa-key";
@@ -76,4 +76,3 @@ export class IconService {
 
   }
 }
-

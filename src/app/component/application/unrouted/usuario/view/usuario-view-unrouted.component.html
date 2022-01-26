@@ -14,28 +14,17 @@
         <td>{{oUsuario?.nombre}}</td>
       </tr>
       <tr>
-        <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Primer Apellido</th>
-        <td>{{oUsuario?.apellido1}}</td>
+        <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Apelidos</th>
+        <td>{{oUsuario?.apellidos}}</td>
       </tr>
+      
       <tr>
-        <th><i [ngClass]="oIconService.getIcon('nombre')"></i> Segundo Apellido</th>
-        <td>{{oUsuario?.apellido2}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('login')"></i> Login</th>
-        <td>{{oUsuario?.login}}</td>
+        <th><i [ngClass]="oIconService.getIcon('user')"></i> User</th>
+        <td>{{oUsuario?.user}}</td>
       </tr>
       <tr>
         <th><i [ngClass]="oIconService.getIcon('email')"></i> email</th>
         <td>{{oUsuario?.email}}</td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('validado')"></i> validado</th>
-        <td [innerHTML]="oUsuario?.validado | showBoolean"></td>
-      </tr>
-      <tr>
-        <th><i [ngClass]="oIconService.getIcon('activado')"></i> activado</th>
-        <td [innerHTML]="oUsuario?.activo | showBoolean"></td>
       </tr>
 
       <tr>

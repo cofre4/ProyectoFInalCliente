@@ -1,8 +1,6 @@
-import { CarritoService } from './../../../../service/carrito.service';
 import { Component, OnInit } from '@angular/core';
 import { NavigationEnd, Router } from '@angular/router';
 import { Observable } from 'rxjs';
-import { ICarritoPage } from 'src/app/model/carrito-interfaces';
 import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { IconService } from 'src/app/service/icon.service';
 
@@ -22,7 +20,6 @@ export class MenuComponent implements OnInit {
   constructor(
     private router: Router,
     public oIconService: IconService,
-    private oCarritoService: CarritoService,
     
 
   ) {
@@ -38,14 +35,9 @@ export class MenuComponent implements OnInit {
   }
 
   ngOnInit(): void {
-   this.count();
+  
   }
 
-  count = () => {
-    this.oCarritoService.count().subscribe((oData: number) => {
-      this.tcarrito=oData;
-    })
-  }
 
   
 

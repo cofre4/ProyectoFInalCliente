@@ -18,7 +18,6 @@ export class PrePrintComponent implements OnInit {
   @Input() showfechas: boolean = true; //true=edición; false=selección
   @Output() selection = new EventEmitter<number>();
 
-  cantidad: number;
   fechainicio: string;
   fechafin: string;
   oForm: FormGroup = null;
@@ -68,14 +67,13 @@ export class PrePrintComponent implements OnInit {
 
   onSubmit(): void {
     if (this.oForm) {
-      if (this.showcantidad && this.oForm.get("cantidad")?.value > 0) {
+     
         if (this.showfechas && this.oForm.get("fechainicio")?.value > 0 && this.oForm.get("fechafin")?.value > 0) {
-          this.oData2Send.cantidad =1;
           this.oData2Send.fechainicial ="";
           this.oData2Send.fechafinal ="";
           //this.selection.emit(oData2Send);
         }
-      }
+      
     }
   }
 }

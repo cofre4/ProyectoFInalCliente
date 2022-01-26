@@ -5,15 +5,10 @@ export interface IUsuario {
     id: number,
     dni: string,
     nombre: string,
-    apellido1: string,
-    apellido2: string,
-    login: string,
+    apellidos: string,
+    user: string,
     email: string,
-    descuento: number,
-    validado: boolean,
-    activo: boolean,
     tipousuario: IUserType,
-    carritos: number,
     facturas: number
 }
 
@@ -27,12 +22,8 @@ export interface IUsuario2Send {
     id: number,
     dni: string,
     nombre: string,
-    apellido1: string,
-    apellido2: string,
-    login: string,
+    apellidos: string,
+    user: string,
     email: string,
-    descuento: number,
-    validado: boolean,
-    activo: boolean,
     tipousuario: I2Send
 }

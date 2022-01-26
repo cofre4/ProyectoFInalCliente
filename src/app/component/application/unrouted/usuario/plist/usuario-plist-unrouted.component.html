@@ -75,30 +75,20 @@
             <i class="fas fa-arrow-down" *ngIf="currentSortField=='nombre'&&currentSortDirection=='desc'"></i>
 
           </th>
-          <th (click)="doSetOrder('apellido1')">
-            <i [ngClass]="oIconService.getIcon('nombre')"></i> Primer Apellido
-            <i class="fas fa-arrow-up" *ngIf="currentSortField=='apellido1'&&currentSortDirection=='asc'"></i>
-            <i class="fas fa-arrow-down" *ngIf="currentSortField=='apellido1'&&currentSortDirection=='desc'"></i>
+          <th (click)="doSetOrder('apellidos')">
+            <i [ngClass]="oIconService.getIcon('nombre')"></i> Apellidos
+            <i class="fas fa-arrow-up" *ngIf="currentSortField=='apellidos'&&currentSortDirection=='asc'"></i>
+            <i class="fas fa-arrow-down" *ngIf="currentSortField=='apellidos'&&currentSortDirection=='desc'"></i>
 
           </th>
-          <th (click)="doSetOrder('apellido2')">
-            <i [ngClass]="oIconService.getIcon('nombre')"></i> Segundo Apellido
-            <i class="fas fa-arrow-up" *ngIf="currentSortField=='apellido2'&&currentSortDirection=='asc'"></i>
-            <i class="fas fa-arrow-down" *ngIf="currentSortField=='apellido2'&&currentSortDirection=='desc'"></i>
-
-          </th>
+          
           <th (click)="doSetOrder('email')" *ngIf="mode">
             <i [ngClass]="oIconService.getIcon('email')"></i> Email{{mode}}
             <i class="fas fa-arrow-up" *ngIf="currentSortField=='email'&&currentSortDirection=='asc'"></i>
             <i class="fas fa-arrow-down" *ngIf="currentSortField=='email'&&currentSortDirection=='desc'"></i>
 
           </th>
-          <th (click)="doSetOrder('carritos')"><i [ngClass]="oIconService.getIcon('carrito')"></i>
-            Productos en Carrito
-            <i class="fas fa-arrow-up" *ngIf="currentSortField=='carritos'&&currentSortDirection=='asc'"></i>
-            <i class="fas fa-arrow-down" *ngIf="currentSortField=='carritos'&&currentSortDirection=='desc'"></i>
-
-          </th>
+         
           <th (click)="doSetOrder('facturas')"><i [ngClass]="oIconService.getIcon('factura')"></i>
             Facturas
             <i class="fas fa-arrow-up" *ngIf="currentSortField=='facturas'&&currentSortDirection=='asc'"></i>
@@ -111,8 +101,7 @@
             <i class="fas fa-arrow-down" *ngIf="currentSortField=='tipousuario'&&currentSortDirection=='desc'"></i>
 
           </th>
-          <th><i [ngClass]="oIconService.getIcon('validado')"></i> Validado</th>
-          <th><i [ngClass]="oIconService.getIcon('activado')"></i> Activado</th>
+        
           <th><i [ngClass]="oIconService.getIcon('acciones')"></i> Acciones</th>
         </tr>
       </thead>
@@ -121,19 +110,8 @@
           <td class="text-end">{{fila.id}}</td>
           <td>{{fila.dni}}</td>
           <td>{{fila.nombre}}</td>
-          <td>{{fila.apellido1}}</td>
-          <td>{{fila.apellido2}}</td>
+          <td>{{fila.apellidos}}</td>
           <td *ngIf="mode">{{fila.email| trim:18}}</td>
-          <td style="text-align: center">
-            <button *ngIf="!mode || fila.carritos==0" class="btn btn-outline-secondary btn-sm"> {{ fila.carritos }}
-              <i [ngClass]="oIconService.getIcon('carrito')"></i>
-            </button>
-            <button *ngIf="mode && fila.carritos>0" class="btn btn-outline-secondary btn-sm"
-              [routerLink]="['/carrito/plist/usuario/' + fila.id]">
-              {{ fila.carritos }} <i [ngClass]="oIconService.getIcon('carrito')"></i>
-            </button>
-          </td>
-
           <td style="text-align: center">
             <button *ngIf="!mode || fila.facturas==0" class="btn btn-outline-secondary btn-sm"> {{ fila.facturas }}
               <i [ngClass]="oIconService.getIcon('factura')"></i>
@@ -151,8 +129,7 @@
               {{fila.tipousuario.nombre | trim:7}}</button>
           </td>
 
-          <td class="text-center" [innerHTML]="fila.validado | showBoolean"></td>
-          <td class="text-center" [innerHTML]="fila.activo | showBoolean"></td>
+          
           <td class="text-center">
             <div class="btn-group btn-group-sm" role="group" *ngIf="!mode">
               <button type="button" class="btn btn-success" (click)="onSelection(fila.id)"><i

@@ -1,9 +1,9 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IFecha } from '../model/model-interfaces';
+import { IHorario } from '../model/model-interfaces';
 
 @Pipe({ name: 'showDateTime' })
 export class showDateTimePipe implements PipeTransform {
-    transform(oFecha: IFecha, modo: number = 0) {
+    transform(oFecha: IHorario, modo: number = 0) {
         if (oFecha) {
             if (modo == 0) {
                 return oFecha.date.day + "/" + oFecha.date.month + "/" + oFecha.date.year + " " + oFecha.time.hour + ":" + oFecha.time.minute;

@@ -12,8 +12,7 @@
     <form novalidate [formGroup]="oForm" (ngSubmit)="onSubmit()" *ngIf="oForm">
       <div class="row mb-3">
         <label for="id" class="col-sm-2 col-form-label">
-          <i [ngClass]="oIconService.getIcon('id')"></i> ID</label
-        >
+          <i [ngClass]="oIconService.getIcon('id')"></i> ID</label>
         <div class="col-sm-10">
           <input
             class="form-control"
@@ -48,31 +47,6 @@
       </div>
 
       <div class="row mb-3">
-        <label for="iva" class="col-sm-2 col-form-label">
-          <i [ngClass]="oIconService.getIcon('porcentaje')"></i> IVA</label
-        >
-        <div class="col-sm-10">
-          <input
-            type="text"
-            class="form-control"
-            id="iva"
-            formControlName="iva"
-            [ngClass]="{
-              'is-valid':
-                f.iva.dirty &&
-                !(f.iva.errors?.required || f.iva.errors?.minlength)
-            }"
-          />
-          <div
-            *ngIf="f.iva.dirty && f.iva.errors?.required"
-            class="text-danger"
-          >
-            Se debe introducir un IVA. El mínimo es de un 4% y máximo de 21%.
-          </div>
-        </div>
-      </div>
-
-      <div class="row mb-3">
         <label for="pagado" class="col-sm-2 col-form-label">
           <i [ngClass]="oIconService.getIcon('pagado')"></i> Pagado</label
         >
@@ -90,9 +64,7 @@
             <span class="input-group-text">{{
               oFactura2Show.usuario.nombre +
                 " " +
-                oFactura2Show.usuario.apellido1 +
-                " " +
-                oFactura2Show.usuario.apellido2
+                oFactura2Show.usuario.apellidos
             }}</span>
             <input
               type="number"

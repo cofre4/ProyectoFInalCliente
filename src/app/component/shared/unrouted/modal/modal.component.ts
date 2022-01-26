@@ -16,7 +16,7 @@ export class ModalComponent implements OnInit {
   @Output() close = new EventEmitter<Event>();
   @Input() show: Observable<void>;
   @Input() hide: Observable<void>;
-  @Input() title: string = "wildCART";
+  @Input() title: string = "Profiman S.L.";
   @Input() size: string = "";
   @Input() mode: boolean = false; // false->cerrar; true->si/no (no implementado)
   @Input() mimodal: string = "miModal"; // obligatorio si hay más de un modal en la página

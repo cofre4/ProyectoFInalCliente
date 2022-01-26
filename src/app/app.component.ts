@@ -6,7 +6,7 @@ import { Component } from '@angular/core';
 })
 
 export class AppComponent {
-  title = 'blogBUSTER-client-2021';
+  title = 'Profiman S.L.';
 
   constructor() {
   }    

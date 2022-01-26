@@ -1,0 +1,73 @@
+<div class="row justify-content-between my-3">
+  <div class="col-md text-start">
+    <h6>{{strFilteredMessage}}</h6>
+  </div>  
+  <div class="col-md text-center">
+    <form>
+      <div class="input-group input-group-sm">
+        <div class="input-group-prepend">
+          <span class="input-group-text"> <i [ngClass]="oIconService.getIcon('filtro')"></i></span>
+        </div>
+        <input type="text" class="form-control" placeholder="{{'Filtro de ' + strTitlePlural}}" placeholder="Search"
+          (keyup)="onKeyUpFilter($event)" [(ngModel)]="strFilter" name="buscar" aria-label="Small"
+          aria-describedby="inputGroup-sizing-sm" />
+      </div>
+    </form>
+  </div>
+  <div class="col-md text-end">
+    <h4 class="text-muted">{{nTotalElements}} {{strTitlePlural}}</h4>
+  </div>
+</div>
+
+<div class="row justify-content-between">
+  <div class="col-md text-start">
+    <nav aria-label="pagination">
+      <ul class="pagination">
+        <li class="page-item" aria-current="page" *ngFor="let p of aPaginationBar"
+          [ngClass]="{'active': (nPage+'' == p)}">
+          <a class="page-link" (click)="nPage=(+p);jumpToPage()" href="#">{{p}}</a>
+        </li>
+      </ul>
+    </nav>
+  </div>
+
+  <div class="col-md text-center">
+    <ng-content select="header"></ng-content>
+  </div>
+
+  <div class="col-md text-end">
+    <div class="dropdown mb-3">
+      <button class="btn btn-primary dropdown-toggle" type="button" id="dropdownMenuButton1" data-bs-toggle="dropdown"
+        aria-expanded="false">
+        Servicios por página: {{nPageSize}}
+      </button>
+      <ul class="dropdown-menu" aria-labelledby="dropdownMenuButton1">
+        <li><a class="dropdown-item" (click)="nPageSize=10;getPage()">10</a></li>
+        <li><a class="dropdown-item" (click)="nPageSize=50;getPage()">50</a></li>
+        <li><a class="dropdown-item" (click)="nPageSize=100;getPage()">100</a></li>
+        <li><a class="dropdown-item" (click)="nPageSize=1000;getPage()">1000</a></li>
+      </ul>
+    </div>
+  </div>
+</div>
+
+<div class="row justify-content-center">
+  
+    <div class="card bg-light border-light w-25 my-2 py-3" *ngFor="let servicio of aServicios">
+      <div class="card-body">
+        <div class="card-title">
+          <h4>
+            <a [href]="'servicio/view/'+servicio.id"> {{servicio.nombre}} </a>
+          </h4>
+          
+        </div>
+        <p>Precio: {{servicio.precio.toFixed(2)}}€</p>
+      </div>
+      <div class="col-3"></div>
+      
+      <button type="button" class="btn btn-primary" *ngIf="id_tipousuario_session==2" >Añadir al
+        carrito</button>
+
+    </div>
+  
+</div>

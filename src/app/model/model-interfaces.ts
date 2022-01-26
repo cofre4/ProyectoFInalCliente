@@ -9,7 +9,7 @@ export interface ITime {
     minute: number
 }
 
-export interface IFecha {
+export interface IHorario {
     date: IDate,
     time: ITime
 }
@@ -22,7 +22,7 @@ export interface IPost {
     id: number,
     titulo: string,
     cuerpo: string,
-    fecha: IFecha,
+    horario: IHorario,
     etiquetas: string,
     visible: boolean
 }
@@ -37,7 +37,7 @@ export interface IPost2Send {
     id: number,
     titulo: string,
     cuerpo: string,
-    fecha: string,
+    horario: string,
     etiquetas: string,
     visible: boolean
 }
@@ -48,7 +48,6 @@ export interface IReport {
 }
 
 export interface IPrint {
-    cantidad: number;
     fechainicial:string;
     fechafinal:string;
 }

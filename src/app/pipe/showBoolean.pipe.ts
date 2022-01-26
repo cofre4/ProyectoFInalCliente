@@ -1,5 +1,5 @@
 import { Pipe, PipeTransform } from '@angular/core';
-import { IFecha } from '../model/model-interfaces';
+import { IHorario } from '../model/model-interfaces';
 
 @Pipe({ name: 'showBoolean' })
 export class showBooleanPipe implements PipeTransform {

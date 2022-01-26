@@ -7,8 +7,8 @@ import { IUsuario } from 'src/app/model/usuario-interfaces';
 import { FacturaService } from 'src/app/service/factura.service';
 import { IconService } from 'src/app/service/icon.service';
 import { PaginationService } from 'src/app/service/pagination.service';
-import { CompraService } from 'src/app/service/compra.service';
-import { ICompra, IPageCompra } from 'src/app/model/compra-interfaces';
+import { ContrataService } from 'src/app/service/contrata.service';
+import { IContrata, IPageContrata } from 'src/app/model/contrata-interfaces';
 
 declare let jsPDF: any;
 @Component({
@@ -23,7 +23,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
   @Output() selection = new EventEmitter<number>();
   //@ContentChild(TemplateRef) toolTemplate: TemplateRef<any>;
 
-  aCompras: ICompra[];
+  aContratas: IContrata[];
   oFacturas: IFactura[];
   aFacturas: IFactura[];
   totalElements: number;
@@ -65,7 +65,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     private oPaginationService: PaginationService,
     private oFacturaService: FacturaService,
     public oIconService: IconService,
-    public oCompraService: CompraService
+    public oContrataService: ContrataService
   ) {
 
 
@@ -132,7 +132,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     doc.setFontSize(18)
     doc.text('Cliente', 20, 80)
     doc.setFontSize(16)
-    doc.text(oFactura?.usuario?.nombre + " " + oFactura?.usuario?.apellido1 + " " + oFactura?.usuario?.apellido2, 20, 89)
+    doc.text(oFactura?.usuario?.nombre + " " + oFactura?.usuario?.apellidos, 20, 89)
     doc.setFontSize(14)
 
     doc.text(oFactura?.usuario?.email, 20, 95)
@@ -141,10 +141,10 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     doc.setFontSize(18)
     doc.text('Empresa', 140, 80)
     doc.setFontSize(16)
-    doc.text('Wildcart', 140, 89)
+    doc.text('Profiman S.L.', 140, 89)
     doc.setFontSize(14)
 
-    doc.text('wildcart@gmail.com', 140, 95)
+    doc.text('profiman@gmail.com', 140, 95)
     doc.text(oFactura?.usuario?.dni, 140, 101)
     doc.line(15, 110, 195, 110)
 
@@ -153,8 +153,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     doc.text(oFactura.id + "", 42, 120)
     doc.text(oFactura.fecha + "", 42, 129)
 
-    doc.text('Producto', 20, 140)
-    doc.text('Cantidad', 100, 140)
+    doc.text('Servicio', 20, 140)
     doc.text('Precio (€)', 130, 140)
     doc.text('Importe (€)', 170, 140)
     doc.line(15, 145, 195, 145)
@@ -162,23 +161,23 @@ export class FacturaPlistUnroutedComponent implements OnInit {
     return doc;
   }
 
-  getProductos = (tamanyo: number, factura: number) => {
+  getServicios = (tamanyo: number, factura: number) => {
     console.log("buscando...", this.strFilter);
-    this.oCompraService.getPage(tamanyo, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, factura, null).subscribe((oPage: IPageCompra) => {
+    this.oContrataService.getPage(tamanyo, this.nPage, this.strFilter, this.strSortField, this.strSortDirection, factura, null).subscribe((oPage: IPageContrata) => {
       if (this.strFilter) {
         this.strFilteredMessage = "Listado filtrado: " + this.strFilter;
       } else {
         this.strFilteredMessage = "";
       }
-      this.aCompras = oPage.content;
+      this.aContratas = oPage.content;
       this.nTotalElements = oPage.totalElements;
       this.nTotalPages = oPage.totalPages;
       this.aPaginationBar = this.oPaginationService.pagination(this.nTotalPages, this.nPage);
-      console.log(this.aCompras);
+      console.log(this.aContratas);
 
       // You'll need to make your image into a Data URL
       // Use http://dataurl.net/#dataurlmaker
-      var imgData = '../../../../../../assets/img/wildCartLogo100.png'
+      var imgData = '../../../../../../assets/img/ProfimanLogo100.png'
       var doc = new jsPDF()
 
       //Cabecera
@@ -187,20 +186,20 @@ export class FacturaPlistUnroutedComponent implements OnInit {
 
       doc.setFontSize(12)
 
-      console.log(this.oFactura.compras);
-      console.log(this.aCompras);
+      console.log(this.oFactura.contratas);
+      console.log(this.aContratas);
 
       var linea = 155;
       var total=0;
 
-      for (let i = 0; i < this.oFactura.compras; i++) {
+      for (let i = 0; i < this.oFactura.contratas; i++) {
 
-        doc.text(this.aCompras[i].producto.nombre, 20, linea)
-        doc.text(this.aCompras[i].cantidad + "", 100, linea)
-        doc.text(this.aCompras[i].producto.precio + "", 130, linea)
-        doc.text((this.aCompras[i].cantidad * this.aCompras[i].producto.precio) + "", 170, linea)
+        doc.text(this.aContratas[i].servicio.nombre, 20, linea)
+        //doc.text(this.aContratas[i].cantidad + "", 100, linea)
+        doc.text(this.aContratas[i].servicio.precio + "", 130, linea)
+       // doc.text((this.aContratas[i].cantidad * this.aContratas[i].servicio.precio) + "", 170, linea)
 
-        total= total + (this.aCompras[i].cantidad * this.aCompras[i].producto.precio);
+       // total= total + (this.aContratas[i].cantidad * this.aContratas[i].servicio.precio);
         linea = linea+7;
 
         if (linea>230){
@@ -215,9 +214,9 @@ export class FacturaPlistUnroutedComponent implements OnInit {
       doc.text('Total:', 139, linea+7)
       doc.text(total+"€", 170, linea+7)
       doc.text('IVA:', 139, linea + 14)
-      doc.text(this.oFactura.iva + "%", 170, linea + 14)
+      //doc.text(this.oFactura.iva + "%", 170, linea + 14)
       doc.text('Total + IVA:', 139, linea + 21)
-      doc.text(total+(total*this.oFactura.iva)/100 +"€", 170, linea + 21)
+      //doc.text(total+(total*this.oFactura.iva)/100 +"€", 170, linea + 21)
 
 
       doc.save("Factura.pdf");
@@ -229,7 +228,7 @@ export class FacturaPlistUnroutedComponent implements OnInit {
 
     this.oFacturaService.getOne(id).subscribe((oData: IFactura) => {
       this.oFactura = oData;
-      this.getProductos(this.oFactura.compras, this.oFactura.id);
+      this.getServicios(this.oFactura.contratas, this.oFactura.id);
       console.log(this.oFactura);
 
 
